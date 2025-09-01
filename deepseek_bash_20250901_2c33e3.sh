@@ -1,0 +1,1 @@
+mkdir -p templates static/css static/js static/pdfs
