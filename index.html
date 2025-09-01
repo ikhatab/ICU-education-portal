@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICU Medical Education Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #0dcaf0;
+            --accent-color: #198754;
+            --dark-blue: #052c65;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #fafbfe;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(13, 110, 253, 0.8), rgba(13, 202, 240, 0.8)), url('https://images.unsplash.com/photo-1582719471384-8946c91c86a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 30px 0;
+            color: var(--dark-blue);
+        }
+        
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .quiz-option {
+            cursor: pointer;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .quiz-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .podcast-player {
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-hospital-user me-2"></i>ICU Medical Education
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-section="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="research">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="guidelines">Guidelines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="videos">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="quiz">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="textbooks">Textbooks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="manuals">Manuals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="podcast">Podcast</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">ICU Medical Education Portal</h1>
+            <p class="lead">Advancing critical care through education, research, and innovation</p>
+            <a href="#content-start" class="btn btn-light btn-lg mt-3">Explore Resources</a>
+        </div>
+    </section>
+
+    <div class="container" id="content-start">
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+            <div class="row text-center mb-5">
+                <div class="col-md-12">
+                    <h2 class="section-title">Comprehensive ICU Education Resources</h2>
+                    <p class="lead">Your premier destination for critical care medical education</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3 col-sm-6 text-center mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-flask feature-icon"></i>
+                            <h5 class="card-title">Research</h5>
+                            <p class="card-text">Access the latest ICU research and clinical trials</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 text-center mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-book-medical feature-icon"></i>
+                            <h5 class="card-title">Guidelines</h5>
+                            <p class="card-text">Updated clinical practice guidelines for ICU professionals</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 text-center mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-video feature-icon"></i>
+                            <h5 class="card-title">Videos</h5>
+                            <p class="card-text">Procedural demonstrations and lecture recordings</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 text-center mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-question-circle feature-icon"></i>
+                            <h5 class="card-title">Quiz</h5>
+                            <p class="card-text">Test your knowledge with interactive quizzes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h3>Latest Updates</h3>
+                            <div class="alert alert-primary">
+                                <strong>New:</strong> 2023 Sepsis Management Guidelines now available
+                            </div>
+                            <div class="alert alert-info">
+                                <strong>Conference:</strong> International Symposium on Critical Care - November 15-17, 2023
+                            </div>
+                            <div class="alert alert-success">
+                                <strong>Featured:</strong> Podcast with Dr. Smith on ECMO management in COVID-19 patients
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="content-section">
+            <h2 class="section-title">Latest Research</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Sedation Protocols in Mechanically Ventilated Patients</h5>
+                            <p class="card-text"><small class="text-muted">Published: August 15, 2023</small></p>
+                            <p class="card-text">Comparative study of sedation protocols and their impact on ventilator weaning time.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Abstract</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Early Mobilization in ICU: Effects on Patient Outcomes</h5>
+                            <p class="card-text"><small class="text-muted">Published: July 28, 2023</small></p>
+                            <p class="card-text">Randomized controlled trial demonstrating improved outcomes with early mobilization protocols.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Abstract</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Biomarkers for Early Detection of Sepsis</h5>
+                            <p class="card-text"><small class="text-muted">Published: June 5, 2023</small></p>
+                            <p class="card-text">Evaluation of novel biomarkers for early sepsis detection in critically ill patients.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Abstract</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Tele-ICU Implementation During Staff Shortages</h5>
+                            <p class="card-text"><small class="text-muted">Published: May 18, 2023</small></p>
+                            <p class="card-text">Analysis of tele-ICU effectiveness during pandemic-related staff shortages.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Abstract</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>Research Database Access</h4>
+                            <p>Search our extensive database of ICU research articles</p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Search research articles...">
+                                <button class="btn btn-primary" type="button">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guidelines Section -->
+        <section id="guidelines" class="content-section">
+            <h2 class="section-title">Clinical Practice Guidelines</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Browse by Category</h4>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="badge bg-primary">Sepsis</span>
+                                <span class="badge bg-primary">Ventilation</span>
+                                <span class="badge bg-primary">Sedation</span>
+                                <span class="badge bg-primary">Nutrition</span>
+                                <span class="badge bg-primary">Hemodynamics</span>
+                                <span class="badge bg-primary">Infections</span>
+                            </div>
+                            
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">2023 SSC Guidelines for Management of Sepsis and Septic Shock</h5>
+                                        <small>Updated 3 days ago</small>
+                                    </div>
+                                    <p class="mb-1">International guidelines for the management of sepsis and septic shock</p>
+                                    <small>Surviving Sepsis Campaign</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">PADIS Guidelines: Pain, Agitation/Sedation, Delirium, Immobility, and Sleep Disruption</h5>
+                                        <small>Updated 2 weeks ago</small>
+                                    </div>
+                                    <p class="mb-1">Clinical practice guidelines for the prevention and management of pain, agitation/sedation, delirium, immobility, and sleep disruption in adult patients in the ICU</p>
+                                    <small>Society of Critical Care Medicine</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">ARDS Management Guidelines</h5>
+                                        <small>Updated 1 month ago</small>
+                                    </div>
+                                    <p class="mb-1">Evidence-based guidelines for the management of adult patients with acute respiratory distress syndrome</p>
+                                    <small>European Society of Intensive Care Medicine</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section id="videos" class="content-section">
+            <h2 class="section-title">Educational Videos</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="ratio ratio-16x9 mb-3">
+                                <img src="https://images.unsplash.com/photo-1582719471384-8946c91c86a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Video thumbnail">
+                            </div>
+                            <h5 class="card-title">Mechanical Ventilation Basics</h5>
+                            <p class="card-text">Dr. Emily Johnson explains the fundamentals of mechanical ventilation for ICU patients.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">45:28</small>
+                                <button class="btn btn-sm btn-primary">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="ratio ratio-16x9 mb-3">
+                                <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Video thumbnail">
+                            </div>
+                            <h5 class="card-title">Ultrasound-Guided Central Line Placement</h5>
+                            <p class="card-text">Step-by-step demonstration of ultrasound-guided central venous catheterization.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">32:15</small>
+                                <button class="btn btn-sm btn-primary">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="ratio ratio-16x9 mb-3">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Video thumbnail">
+                            </div>
+                            <h5 class="card-title">ECMO Management in COVID-19 Patients</h5>
+                            <p class="card-text">Case discussion on ECMO management strategies for severe COVID-19 ARDS.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">51:42</small>
+                                <button class="btn btn-sm btn-primary">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="ratio ratio-16x9 mb-3">
+                                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Video thumbnail">
+                            </div>
+                            <h5 class="card-title">ICU Delirium: Prevention and Management</h5>
+                            <p class="card-text">Strategies for prevention, early recognition, and management of ICU delirium.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">38:17</small>
+                                <button class="btn btn-sm btn-primary">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="content-section">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">ICU Knowledge Quiz</h4>
+                            <div id="quiz-container">
+                                <div id="quiz-intro">
+                                    <p>This quiz contains 5 questions about critical care medicine. Select the best answer for each question.</p>
+                                    <button id="start-quiz" class="btn btn-primary">Start Quiz</button>
+                                </div>
+                                <div id="quiz-questions" style="display: none;">
+                                    <div class="question">
+                                        <h5>Question <span id="question-number">1</span>/5</h5>
+                                        <p id="question-text">Which of the following is the first-line vasopressor for septic shock?</p>
+                                        <div class="quiz-option" data-correct="true">Norepinephrine</div>
+                                        <div class="quiz-option" data-correct="false">Dopamine</div>
+                                        <div class="quiz-option" data-correct="false">Epinephrine</div>
+                                        <div class="quiz-option" data-correct="false">Vasopressin</div>
+                                    </div>
+                                    <div class="mt-3" id="feedback"></div>
+                                    <button id="next-question" class="btn btn-primary mt-3" style="display: none;">Next Question</button>
+                                </div>
+                                <div id="quiz-results" style="display: none;">
+                                    <h5>Quiz Results</h5>
+                                    <p>You scored <span id="score">0</span> out of 5 (<span id="percentage">0%</span>)</p>
+                                    <button id="retry-quiz" class="btn btn-primary">Try Again</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Textbooks Section -->
+        <section id="textbooks" class="content-section">
+            <h2 class="section-title">ICU Textbooks & References</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Marino's The ICU Book</h5>
+                            <p class="card-text"><span class="text-muted">Author:</span> Paul L. Marino</p>
+                            <p class="card-text">Comprehensive guide to ICU care with practical, clinically oriented content.</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                                <a href="#" class="btn btn-sm btn-outline-success">Access Online</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">The Washington Manual of Critical Care</h5>
+                            <p class="card-text"><span class="text-muted">Authors:</span> Marin H. Kollef et al.</p>
+                            <p class="card-text">Practical guide to the management of critically ill patients.</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                                <a href="#" class="btn btn-sm btn-outline-success">Access Online</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Textbook of Critical Care</h5>
+                            <p class="card-text"><span class="text-muted">Editors:</span> Jean-Louis Vincent et al.</p>
+                            <p class="card-text">Comprehensive reference covering all aspects of critical care medicine.</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                                <a href="#" class="btn btn-sm btn-outline-success">Access Online</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Oh's Intensive Care Manual</h5>
+                            <p class="card-text"><span class="text-muted">Authors:</span> Andrew Bersten et al.</p>
+                            <p class="card-text">Practical, synoptic-style manual for quick reference in the ICU.</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                                <a href="#" class="btn btn-sm btn-outline-success">Access Online</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manuals Section -->
+        <section id="manuals" class="content-section">
+            <h2 class="section-title">ICU Procedure Manuals</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Quick Reference Guides</h4>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Central Venous Catheterization</h5>
+                                        <small class="text-muted">Updated: May 2023</small>
+                                    </div>
+                                    <p class="mb-1">Step-by-step guide for internal jugular, subclavian, and femoral approaches</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Arterial Line Placement</h5>
+                                        <small class="text-muted">Updated: April 2023</small>
+                                    </div>
+                                    <p class="mb-1">Procedure guide for radial, femoral, and axillary arterial catheterization</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Intubation Protocol</h5>
+                                        <small class="text-muted">Updated: June 2023</small>
+                                    </div>
+                                    <p class="mb-1">Rapid sequence intubation checklist and medication guide</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Chest Tube Insertion</h5>
+                                        <small class="text-muted">Updated: March 2023</small>
+                                    </div>
+                                    <p class="mb-1">Guide for emergency chest tube thoracostomy</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Podcast Section -->
+        <section id="podcast" class="content-section">
+            <h2 class="section-title">ICU Podcasts</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="podcast-player">
+                        <h4 class="text-center">Critical Care Reviews</h4>
+                        <div class="text-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1589903308904-d969a5ad15d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Podcast cover" class="img-fluid rounded" style="max-height: 200px;">
+                        </div>
+                        <h5>Episode 23: Updates in Sepsis Management</h5>
+                        <p>Guest: Dr. Sarah Williams, Director of Critical Care at Metro Medical Center</p>
+                        <div class="d-flex justify-content-center mt-4">
+                            <audio controls class="w-100">
+                                <source src="#" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-sm btn-outline-primary">Subscribe on Apple Podcasts</button>
+                            <button class="btn btn-sm btn-outline-primary">Subscribe on Spotify</button>
+                            <button class="btn btn-sm btn-outline-primary">Subscribe on Google Podcasts</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Recent Episodes</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Episode 22: ECMO in Adult Respiratory Failure</li>
+                                <li class="list-group-item">Episode 21: Nutrition in Critical Illness</li>
+                                <li class="list-group-item">Episode 20: ICU Liberation Bundle</li>
+                                <li class="list-group-item">Episode 19: Hemodynamic Monitoring Updates</li>
+                                <li class="list-group-item">Episode 18: COVID-19 Lessons Learned</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Upcoming Episodes</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Episode 24: Pediatric Critical Care Updates (Sept 15)</li>
+                                <li class="list-group-item">Episode 25: Tele-ICU Implementation (Sept 29)</li>
+                                <li class="list-group-item">Episode 26: Burn Management in ICU (Oct 13)</li>
+                                <li class="list-group-item">Episode 27: Neurocritical Care Advances (Oct 27)</li>
+                                <li class="list-group-item">Episode 28: Year in Review: Critical Care 2023 (Nov 10)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>ICU Medical Education</h5>
+                    <p>Advancing critical care through education, research, and innovation.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">Research</a></li>
+                        <li><a href="#" class="text-white">Guidelines</a></li>
+                        <li><a href="#" class="text-white">Videos</a></li>
+                        <li><a href="#" class="text-white">Quiz</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <i class="fas fa-envelope me-2"></i> education@icumed.org<br>
+                        <i class="fas fa-phone me-2"></i> (555) 123-4567<br>
+                        <i class="fas fa-map-marker-alt me-2"></i> 123 Medical Plaza, Healthcare City
+                    </address>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>© 2023 ICU Medical Education Portal. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navigation between sections
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show the corresponding section
+                const sectionId = this.getAttribute('data-section');
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+
+        // Quiz functionality
+        document.getElementById('start-quiz').addEventListener('click', function() {
+            document.getElementById('quiz-intro').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+        });
+
+        let currentQuestion = 1;
+        let score = 0;
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                if (this.getAttribute('data-correct') === 'true') {
+                    this.classList.add('correct');
+                    score++;
+                    document.getElementById('feedback').innerHTML = '<div class="alert alert-success">Correct! Well done.</div>';
+                } else {
+                    this.classList.add('incorrect');
+                    document.getElementById('feedback').innerHTML = '<div class="alert alert-danger">Incorrect. The right answer is Norepinephrine.</div>';
+                }
+                
+                // Disable all options after selection
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.style.pointerEvents = 'none';
+                });
+                
+                document.getElementById('next-question').style.display = 'block';
+            });
+        });
+
+        document.getElementById('next-question').addEventListener('click', function() {
+            if (currentQuestion < 5) {
+                currentQuestion++;
+                document.getElementById('question-number').textContent = currentQuestion;
+                
+                // Reset UI for next question
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                    opt.style.pointerEvents = 'auto';
+                });
+                document.getElementById('feedback').innerHTML = '';
+                document.getElementById('next-question').style.display = 'none';
+                
+                // Update question text (in a real app, you would have different questions)
+                document.getElementById('question-text').textContent = 
+                    "Question " + currentQuestion + " placeholder text?";
+            } else {
+                // Show results
+                document.getElementById('quiz-questions').style.display = 'none';
+                document.getElementById('quiz-results').style.display = 'block';
+                document.getElementById('score').textContent = score;
+                document.getElementById('percentage').textContent = (score/5*100) + '%';
+            }
+        });
+
+        document.getElementById('retry-quiz').addEventListener('click', function() {
+            // Reset quiz
+            currentQuestion = 1;
+            score = 0;
+            document.getElementById('question-number').textContent = currentQuestion;
+            document.getElementById('question-text').textContent = "Which of the following is the first-line vasopressor for septic shock?";
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                opt.style.pointerEvents = 'auto';
+            });
+            document.getElementById('feedback').innerHTML = '';
+            document.getElementById('next-question').style.display = 'none';
+            
+            // Show intro again
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-intro').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
